@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pitstop-gateway-configmap
+  namespace: pitstop
+data:
+  PORT: "8080"
+  CUSTOMER_URL: "pitstop-customer-service:3001"
+  VEHICLE_URL: "pitstop-vehicle-service:3002"
+  WORKSHOP_URL: "pitstop-workshop-service:3003"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pitstop-gateway-service
+  namespace: pitstop
+spec:
+  ports:
+    - port: 8080
+  type: NodePort
+  selector:
+    app: pitstop-gateway
+  
