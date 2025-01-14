@@ -2,6 +2,11 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: pitstop
+spec:
+  template:
+    spec:
+      containers:
+        - image: devops4project/pitstop-webapp:2d42ac1
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -10,6 +15,11 @@ metadata:
   namespace: pitstop
 data:
   VUE_APP_API_BASE_URL: "http://pitstop-gateway-service:8080" # Example environment variable for API base URL
+spec:
+  template:
+    spec:
+      containers:
+        - image: devops4project/pitstop-webapp:2d42ac1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -30,13 +40,12 @@ spec:
     spec:
       containers:
         - name: pitstop-webapp
-          image: $DOCKER_HUB_USER/pitstop-webapp:dev
+          image: devops4project/pitstop-webapp:2d42ac1
           ports:
             - containerPort: 8080
           envFrom:
             - configMapRef:
                 name: pitstop-webapp-configmap
-
 ---
 apiVersion: v1
 kind: Service
@@ -51,3 +60,7 @@ spec:
   type: NodePort
   selector:
     app: pitstop-webapp
+  template:
+    spec:
+      containers:
+        - image: devops4project/pitstop-webapp:2d42ac1
