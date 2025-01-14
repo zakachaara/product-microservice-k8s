@@ -8,11 +8,6 @@ data:
   CUSTOMER_URL: "pitstop-customer-service:3001"
   VEHICLE_URL: "pitstop-vehicle-service:3002"
   WORKSHOP_URL: "pitstop-workshop-service:3003"
-spec:
-  template:
-    spec:
-      containers:
-        - image: devops4project/pitstop-express-gateway:09b344f
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -49,7 +44,4 @@ spec:
   type: NodePort
   selector:
     app: pitstop-gateway
-  template:
-    spec:
-      containers:
-        - image: devops4project/pitstop-express-gateway:09b344f
+  
