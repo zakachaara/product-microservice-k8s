@@ -1,0 +1,25 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pitstop-customer-depl
+  namespace: pitstop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pitstop-customer
+  template:
+    metadata:
+      labels:
+        app: pitstop-customer
+    spec:
+      containers:
+        - name: pitstop-customer
+          image: msalekmouad/pitstop-customer:dev
+          ports:
+            - containerPort: 3001
+          envFrom:
+            - configMapRef:
+                name: pitstop-customer-configmap
+

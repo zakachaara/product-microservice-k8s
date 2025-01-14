@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pitstop-gateway-depl
+  namespace: pitstop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pitstop-gateway
+  template:
+    metadata:
+      labels:
+        app: pitstop-gateway
+    spec:
+      containers:
+        - name: pitstop-gateway
+          image: devops4project/pitstop-express-gateway:bb485a9
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: pitstop-gateway-configmap
