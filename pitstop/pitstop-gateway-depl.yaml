@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: pitstop-gateway
-          image: devops4project/:ed875e7
+          image: devops4project/pitstop-gateway:ed875e7
           ports:
             - containerPort: 8080
           envFrom:
