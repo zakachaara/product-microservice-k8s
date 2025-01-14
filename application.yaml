@@ -8,11 +8,11 @@ spec:
   source:
     repoURL: https://github.com/zakachaara/product-microservice-k8s.git
     targetRevision: HEAD
-    path: product-k8s
+    path: pitstop
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: product-local
+    namespace: pitstop
   
   syncPolicy:
     syncOptions:
