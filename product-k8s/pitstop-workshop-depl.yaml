@@ -16,10 +16,9 @@ spec:
     spec:
       containers:
         - name: pitstop-workshop
-          image: msalekmouad/pitstop-vehicle:dev
+          image: devops4project/pitstop-workshop-planning:1202535
           ports:
             - containerPort: 3002
           envFrom:
             - configMapRef:
                 name: pitstop-workshop-configmap
-
