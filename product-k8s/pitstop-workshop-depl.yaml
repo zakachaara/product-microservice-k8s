@@ -1,0 +1,25 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pitstop-workshop-depl
+  namespace: pitstop
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pitstop-workshop
+  template:
+    metadata:
+      labels:
+        app: pitstop-workshop
+    spec:
+      containers:
+        - name: pitstop-workshop
+          image: msalekmouad/pitstop-vehicle:dev
+          ports:
+            - containerPort: 3002
+          envFrom:
+            - configMapRef:
+                name: pitstop-workshop-configmap
+

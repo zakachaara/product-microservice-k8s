@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pitstop-workshop-configmap
+  namespace: pitstop
+data:
+    DB_USER: pitstop-user
+    DB_PASSWORD: pitstop-user
+    DB_NAME: pitstop
+    DB_HOST: pitstop-workshop-database-service
+    DB_PORT: "3306"
+    SERVICE_NAME: pitstop-workshop
+    PORT: "3003"
+    MESSAGE_BUS: pitstop-rabbitmq-service
+    MESSAGE_BUS_USERNAME: pitstop
+    MESSAGE_BUS_PASSWORD: pitstop
+    MESSAGE_BUS_TIMEOUT: "500"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pitstop-workshop-service
+  namespace: pitstop
+spec:
+  ports:
+    - port: 3003
+  type: NodePort
+  selector:
+    app: pitstop-workshop
