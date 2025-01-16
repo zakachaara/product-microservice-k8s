@@ -16,10 +16,9 @@ spec:
     spec:
       containers:
         - name: pitstop-vehicle
-          image: msalekmouad/pitstop-vehicle:dev
+          image: devops4project/devops4project/vehicule-service:102f9f6
           ports:
             - containerPort: 3002
           envFrom:
             - configMapRef:
                 name: pitstop-vehicle-configmap
-
