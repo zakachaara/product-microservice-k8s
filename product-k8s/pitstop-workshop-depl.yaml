@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pitstop-workshop
-          image: devops4project/pitstop-workshop-planning:3213eef
+          image: devops4project/pitstop-workshop-planning:ab1c34c
           ports:
             - containerPort: 3002
           envFrom:
