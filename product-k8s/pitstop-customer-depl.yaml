@@ -16,10 +16,9 @@ spec:
     spec:
       containers:
         - name: pitstop-customer
-          image: msalekmouad/pitstop-customer:dev
+          image: devops4project/customer-service:12a6356
           ports:
             - containerPort: 3001
           envFrom:
             - configMapRef:
                 name: pitstop-customer-configmap
-
