@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: pitstop-webapp
-          image: devops4project/pitstop-webapp:b65a0be
+          image: devops4project/pitstop-webapp:a1544f3
           ports:
             - containerPort: 8080
           envFrom:
