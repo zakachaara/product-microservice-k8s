@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pitstop-customer
-          image: devops4project/customer-service:ed443e7
+          image: devops4project/customer-service:3220116
           ports:
             - containerPort: 3001
           envFrom:
